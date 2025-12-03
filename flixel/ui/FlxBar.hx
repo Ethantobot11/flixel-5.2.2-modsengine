@@ -1012,22 +1012,13 @@ class FlxBar extends FlxSprite
 		return value;
 	}
 
-	public function setColors(fill:FlxColor = null, empty:FlxColor = null)
+	public function setColors(bar:FlxBar, fill:FlxColor, empty:FlxColor)
 {
-    if (fill != null)
-        fillColor = fill;
+    if (bar.barFill != null)
+        bar.barFill.color = fill;
 
-    if (empty != null)
-        emptyColor = empty;
-
-    // Rebuild the bar graphic using new colors
-    if (__barType == FILL_LEFT_TO_RIGHT || __barType == FILL_RIGHT_TO_LEFT ||
-        __barType == FILL_TOP_TO_BOTTOM || __barType == FILL_BOTTOM_TO_TOP)
-    {
-        createFilledBar(emptyColor, fillColor);
-    }
-
-    updateBar();
+    if (bar.bar != null)
+        bar.bar.color = empty;
 }
 
 }
