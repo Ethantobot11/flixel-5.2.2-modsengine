@@ -1012,8 +1012,18 @@ class FlxBar extends FlxSprite
 		return value;
 	}
 
+
 	var fill:FlxColor;
 	var empty:FlxColor
+
+	public function setColors(bar:FlxBar, fill:FlxColor, empty:FlxColor)
+{
+    if (bar.barFill != null)
+        bar.barFill.color = fill;
+
+    if (bar.bar != null)
+        bar.bar.color = empty;
+}
 
 	public function setColors(fill:FlxColor = null, empty:FlxColor = null) { 
 		if (fill != null) fillColor = fill; if (empty != null) emptyColor = empty; // Rebuild the bar graphic using new colors 
