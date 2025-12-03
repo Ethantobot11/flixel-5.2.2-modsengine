@@ -1012,24 +1012,16 @@ class FlxBar extends FlxSprite
 		return value;
 	}
 
-	public function setColors(fill:FlxColor = null, empty:FlxColor = null)
-{
-    if (fill != null)
-        fillColor = fill;
+	var fill:FlxColor;
+	var empty:FlxColor
 
-    if (empty != null)
-        emptyColor = empty;
-
-    // Rebuild the bar graphic using new colors
-    if (__barType == FILL_LEFT_TO_RIGHT || __barType == FILL_RIGHT_TO_LEFT ||
-        __barType == FILL_TOP_TO_BOTTOM || __barType == FILL_BOTTOM_TO_TOP)
-    {
-        createFilledBar(emptyColor, fillColor);
-    }
-
-    updateBar();
-}
-
+	public function setColors(fill:FlxColor = null, empty:FlxColor = null) { 
+		if (fill != null) fillColor = fill; if (empty != null) emptyColor = empty; // Rebuild the bar graphic using new colors 
+		if (_emptyBar == FILL_LEFT_TO_RIGHT || _emptyBar == FILL_RIGHT_TO_LEFT || _emptyBar == FILL_TOP_TO_BOTTOM || _emptyBar== FILL_BOTTOM_TO_TOP) { 
+		createFilledBar(emptyColor, fillColor); 
+		} 
+	updateBar(); 
+	}
 }
 
 enum FlxBarFillDirection
